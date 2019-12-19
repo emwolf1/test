@@ -24,8 +24,8 @@
 
 COLOR_WHITE='\033[0m'
 COLOR_GREEN='\e[0;32m'
-DHCP_STATICLIST="/opt/tmp/dhcp_staticlist.txt"
-DHCP_HOSTNAMES="/opt/tmp/dhcp_hostnames.txt"
+DHCP_STATICLIST="/tmp/mnt/DISK_IMG/dhcp_staticlist.txt"
+DHCP_HOSTNAMES="/tmp/mnt/DISK_IMG/dhcp_hostnames.txt"
 MODEL=$(nvram get model)
 
 Menu_DHCP_Staticlist() {
@@ -231,7 +231,7 @@ Save_DHCP_Hostnames() {
 }
 
 Restore_DHCP_Staticlist_nvram() {
-  nvram set dhcp_staticlist="$(cat /opt/tmp/dhcp_staticlist.txt)"
+  nvram set dhcp_staticlist="$(cat /tmp/mnt/DISK_IMG/dhcp_staticlist.txt)"
   nvram commit
   sleep 1
   if [ -n "$(nvram get dhcp_staticlist)" ]; then
