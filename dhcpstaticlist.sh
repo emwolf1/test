@@ -264,7 +264,7 @@ Restore_DHCP_Hostnames() {
       echo "Unknown error occurred trying to restore dhcp_hostnames"
     fi
   else
-    nvram set dhcp_hostnames="$(cat /opt/tmp/dhcp_hostnames.txt)"
+    nvram set dhcp_hostnames="$(cat /tmp/mnt/DISK_IMG/dhcp_hostnames.txt)"
     nvram commit
     sleep 1
     if [ -n "$(nvram get dhcp_hostnames)" ]; then
